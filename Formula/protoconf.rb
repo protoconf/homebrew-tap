@@ -5,21 +5,21 @@
 class Protoconf < Formula
   desc "Configuration as Code framework based on protobuf and Starlark."
   homepage "https://docs.protoconf.sh/"
-  version "0.1.6-rc1"
+  version "0.1.6"
   license "MIT"
 
   on_macos do
-    if Hardware::CPU.intel?
-      url "https://github.com/protoconf/protoconf/releases/download/v0.1.6-rc1/protoconf_0.1.6-rc1_darwin_amd64.tar.gz"
-      sha256 "7fc7e18b44906356c9dc14b88a0608bd5a4c96670cebecf0830fddfec027aec2"
+    if Hardware::CPU.arm?
+      url "https://github.com/protoconf/protoconf/releases/download/v0.1.6/protoconf_0.1.6_darwin_arm64.tar.gz"
+      sha256 "700fd2e7151156675de42ee84686fbcc407faa6916266577337fd255f201ca30"
 
       def install
         bin.install "protoconf"
       end
     end
-    if Hardware::CPU.arm?
-      url "https://github.com/protoconf/protoconf/releases/download/v0.1.6-rc1/protoconf_0.1.6-rc1_darwin_arm64.tar.gz"
-      sha256 "37e891c888339612b6367682540b64604c923ea67ddf57a58f8c9ac25fcd172b"
+    if Hardware::CPU.intel?
+      url "https://github.com/protoconf/protoconf/releases/download/v0.1.6/protoconf_0.1.6_darwin_amd64.tar.gz"
+      sha256 "43f32b348b9c43190a1f5fe794997dc3ccee7f27ac3776813e3616549a32f1be"
 
       def install
         bin.install "protoconf"
@@ -28,17 +28,17 @@ class Protoconf < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/protoconf/protoconf/releases/download/v0.1.6-rc1/protoconf_0.1.6-rc1_linux_amd64.tar.gz"
-      sha256 "133ba8a6cb6a4c896ef8b66aa58c1ec1f8d4149a0f6f9548e3b04b4fb582f937"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/protoconf/protoconf/releases/download/v0.1.6/protoconf_0.1.6_linux_arm64.tar.gz"
+      sha256 "0e6689210696d27e81ed1cea440e41144d1428e3d0e1a1bfd513984f01f12ad1"
 
       def install
         bin.install "protoconf"
       end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/protoconf/protoconf/releases/download/v0.1.6-rc1/protoconf_0.1.6-rc1_linux_arm64.tar.gz"
-      sha256 "bb5fce54d52d2444026e7cf1245bd8c59013782eb3fecb8d5c23a2df5a375218"
+    if Hardware::CPU.intel?
+      url "https://github.com/protoconf/protoconf/releases/download/v0.1.6/protoconf_0.1.6_linux_amd64.tar.gz"
+      sha256 "2018ba15152cab605cc88c375a292a7a9bc3116647e62b7d745b3c642743fef2"
 
       def install
         bin.install "protoconf"
