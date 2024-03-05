@@ -5,21 +5,21 @@
 class ProtoconfTerraform < Formula
   desc "Terraform integration for protoconf"
   homepage "https://docs.protoconf.sh/"
-  version "0.1.5"
+  version "0.1.5-1"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/protoconf/protoconf-terraform/releases/download/v0.1.5/protoconf-terraform_0.1.5_darwin_amd64.tar.gz"
-      sha256 "4141741c32b0fd16fdcb6aa92999e4b62e5380f9fe868ef8bff4051e7d3efb2c"
+      url "https://github.com/protoconf/protoconf-terraform/releases/download/v0.1.5-1/protoconf-terraform_0.1.5-1_darwin_amd64.tar.gz"
+      sha256 "805c2148c6b5e6978c71cc54ebc638c212fcb57c9da488638c18f7b0f657a677"
 
       def install
         bin.install "protoconf-terraform"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/protoconf/protoconf-terraform/releases/download/v0.1.5/protoconf-terraform_0.1.5_darwin_arm64.tar.gz"
-      sha256 "188bfcce1f5b3053f675c60883475bd8d6215c68b8654be3615954ded1ac7176"
+      url "https://github.com/protoconf/protoconf-terraform/releases/download/v0.1.5-1/protoconf-terraform_0.1.5-1_darwin_arm64.tar.gz"
+      sha256 "71cd64772c37971352704233944b77edfb7ba36e8932ba46121b7d4c1ce55095"
 
       def install
         bin.install "protoconf-terraform"
@@ -29,16 +29,16 @@ class ProtoconfTerraform < Formula
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/protoconf/protoconf-terraform/releases/download/v0.1.5/protoconf-terraform_0.1.5_linux_arm64.tar.gz"
-      sha256 "f8662d5ac5f34d2f99afa4af0508541c737d8ba6fe7660e6a98428305d064543"
+      url "https://github.com/protoconf/protoconf-terraform/releases/download/v0.1.5-1/protoconf-terraform_0.1.5-1_linux_arm64.tar.gz"
+      sha256 "f87665bc8327653720789b09b14aa76f48e5a4940e53d4626349ac0631fa253d"
 
       def install
         bin.install "protoconf-terraform"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/protoconf/protoconf-terraform/releases/download/v0.1.5/protoconf-terraform_0.1.5_linux_amd64.tar.gz"
-      sha256 "38dadb17cd375a35149867387cec28bd200780586c57469996ea81777bd5fda8"
+      url "https://github.com/protoconf/protoconf-terraform/releases/download/v0.1.5-1/protoconf-terraform_0.1.5-1_linux_amd64.tar.gz"
+      sha256 "1d41b50de83ddb9f6fdf78edb1d16e00306b98a0e69263a87f2eb341c42323a9"
 
       def install
         bin.install "protoconf-terraform"
