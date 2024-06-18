@@ -5,21 +5,21 @@
 class ProtoconfXds < Formula
   desc "Envoy XDS integration for protoconf"
   homepage "https://docs.protoconf.sh/"
-  version "0.1.2-1"
+  version "0.1.2-2"
   license "MIT"
 
   on_macos do
-    if Hardware::CPU.intel?
-      url "https://github.com/protoconf/protoconf-xds/releases/download/v0.1.2-1/protoconf-xds_0.1.2-1_darwin_amd64.tar.gz"
-      sha256 "1ca671ee780fc4bef76f3256d3e755ad2eb936277a74501bceb0368e358cc48c"
+    on_intel do
+      url "https://github.com/protoconf/protoconf-xds/releases/download/v0.1.2-2/protoconf-xds_0.1.2-2_darwin_amd64.tar.gz"
+      sha256 "e4cc21fa2eb25ca84a837e860b3f9255f18f823d774823a436394d350949cc12"
 
       def install
         bin.install "protoconf-xds"
       end
     end
-    if Hardware::CPU.arm?
-      url "https://github.com/protoconf/protoconf-xds/releases/download/v0.1.2-1/protoconf-xds_0.1.2-1_darwin_arm64.tar.gz"
-      sha256 "5c3ba548c7735f033c3a54edee6574fda876af1b2c06045444842f0d59eb3646"
+    on_arm do
+      url "https://github.com/protoconf/protoconf-xds/releases/download/v0.1.2-2/protoconf-xds_0.1.2-2_darwin_arm64.tar.gz"
+      sha256 "bd05f09fa50117a85579301eff6e0826d1f1f4b7463a3addfd4489e1289bbd37"
 
       def install
         bin.install "protoconf-xds"
@@ -28,20 +28,24 @@ class ProtoconfXds < Formula
   end
 
   on_linux do
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/protoconf/protoconf-xds/releases/download/v0.1.2-1/protoconf-xds_0.1.2-1_linux_arm64.tar.gz"
-      sha256 "cd459d149af3a5c7105acf1798580c1bb8ec4b4cf25fb3c01d6130ce794f46e4"
+    on_intel do
+      if Hardware::CPU.is_64_bit?
+        url "https://github.com/protoconf/protoconf-xds/releases/download/v0.1.2-2/protoconf-xds_0.1.2-2_linux_amd64.tar.gz"
+        sha256 "3d5ef61c084cf4cc2b4f27695659d87482d2312c7ca46a4770f499a2f0cec071"
 
-      def install
-        bin.install "protoconf-xds"
+        def install
+          bin.install "protoconf-xds"
+        end
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/protoconf/protoconf-xds/releases/download/v0.1.2-1/protoconf-xds_0.1.2-1_linux_amd64.tar.gz"
-      sha256 "8442a94a7d9862234556e9cf562a1c16b121b5a48284fa6584e74f03f38c698c"
+    on_arm do
+      if Hardware::CPU.is_64_bit?
+        url "https://github.com/protoconf/protoconf-xds/releases/download/v0.1.2-2/protoconf-xds_0.1.2-2_linux_arm64.tar.gz"
+        sha256 "ba250d67253209e61b6ec40ccddbc7e5830f3b9f4cb7d35ed773be118b6dce74"
 
-      def install
-        bin.install "protoconf-xds"
+        def install
+          bin.install "protoconf-xds"
+        end
       end
     end
   end
