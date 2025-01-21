@@ -5,21 +5,21 @@
 class Protoconf < Formula
   desc "Configuration as Code framework based on protobuf and Starlark."
   homepage "https://www.protoconf.dev/"
-  version "0.2.0-alpha1"
+  version "0.2.0-alpha2"
   license "MIT"
 
   on_macos do
-    on_intel do
-      url "https://github.com/protoconf/protoconf/releases/download/v0.2.0-alpha1/protoconf_0.2.0-alpha1_darwin_amd64.tar.gz"
-      sha256 "e281ffaf6911893038ed2b9e95d9f950de49bdf014f1c91177781aadb59ee9ba"
+    if Hardware::CPU.intel?
+      url "https://github.com/protoconf/protoconf/releases/download/v0.2.0-alpha2/protoconf_0.2.0-alpha2_darwin_amd64.tar.gz"
+      sha256 "04d0fc68e7dd9226aa52f97ee9ea477378b67214b3f8c163f97f79cdc5ef0145"
 
       def install
         bin.install "protoconf"
       end
     end
-    on_arm do
-      url "https://github.com/protoconf/protoconf/releases/download/v0.2.0-alpha1/protoconf_0.2.0-alpha1_darwin_arm64.tar.gz"
-      sha256 "219f403e7d4c0aa5b90d04b33db859bf65cbf2f6a2f0a44ff0d6d8f87cb89f41"
+    if Hardware::CPU.arm?
+      url "https://github.com/protoconf/protoconf/releases/download/v0.2.0-alpha2/protoconf_0.2.0-alpha2_darwin_arm64.tar.gz"
+      sha256 "9306d23f7819dc1ebdb880e590c7e7a0eca33182e55524eee09845b0acdb8279"
 
       def install
         bin.install "protoconf"
@@ -28,20 +28,20 @@ class Protoconf < Formula
   end
 
   on_linux do
-    on_intel do
+    if Hardware::CPU.intel?
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/protoconf/protoconf/releases/download/v0.2.0-alpha1/protoconf_0.2.0-alpha1_linux_amd64.tar.gz"
-        sha256 "337f467205e3e5c6b9c457d0c14281a9f3b51ab486ab6cde6f173df87bf7333b"
+        url "https://github.com/protoconf/protoconf/releases/download/v0.2.0-alpha2/protoconf_0.2.0-alpha2_linux_amd64.tar.gz"
+        sha256 "fd40daeffd08a6039fd48dfff6776333204005d8bdc468b00aa57dc50955a934"
 
         def install
           bin.install "protoconf"
         end
       end
     end
-    on_arm do
+    if Hardware::CPU.arm?
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/protoconf/protoconf/releases/download/v0.2.0-alpha1/protoconf_0.2.0-alpha1_linux_arm64.tar.gz"
-        sha256 "d376b8cc53e8ac8a4555f493297347b66e42c4b9d2cd93ce992a99d2682675dc"
+        url "https://github.com/protoconf/protoconf/releases/download/v0.2.0-alpha2/protoconf_0.2.0-alpha2_linux_arm64.tar.gz"
+        sha256 "9727d784d2a40a46e43075b27d8afb27b174a8e9f7a0ddab14106adcb9c13f2d"
 
         def install
           bin.install "protoconf"
